@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+
+  demo-db:
+    image: "mysql:8.0.19"
+    ports:
+      - "{32***}:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
+    container_name: {CONTAINER NAME}
+    volumes:
+      - {NAME}-data:/var/lib/mysql
+
+  demo-test-db:
+    image: "mysql:8.0.19"
+    ports:
+      - "32***:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
+    container_name: {CONTAINER NAME FOR TESTS}
+    volumes:
+      - {NAME}-test-data:/var/lib/mysql
+
+volumes:
+  {NAME}-data:
+  {NAME}-test-data:
