@@ -54,6 +54,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .authorizeRequests()
+                .regexMatchers(
+                        "/swagger-ui.html.*",
+                        "/v2/api-docs",
+                        "/swagger-resources.*",
+                        "/webjars/springfox-swagger-ui.*",
+                        "/health")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
